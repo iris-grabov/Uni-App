@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "204437932428",
+    "firebase_url": "https://uni-app-4e078-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "uni-app-4e078",
+    "storage_bucket": "uni-app-4e078.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204437932428:android:4309e4d93cc0c238166ea9",
+        "android_client_info": {
+          "package_name": "com.example.uni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204437932428-jb48rve2l48riahf6ndg44bssqvva34d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvjesnK2JGOvoiIPINdb84WvrPzzYHgJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204437932428-jb48rve2l48riahf6ndg44bssqvva34d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

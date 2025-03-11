@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Uni</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="add_icon">add_icon</string>
+    <string name="heart_icon">heart_icon</string>
+    <string name="user_icon">user_icon</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="you_both_curious_each_other">You both curious each other...</string>
+    <string name="notifications">Notifications</string>
+    <string name="bio">Bio</string>
+    <string name="full_name">Full Name</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="_0">0</string>
+    <string name="posts">Posts:</string>
+    <string name="username">UserName</string>
+    <string name="user_name">user name</string>
+    <string name="user_app_name">user app name</string>
+    <string name="want_to_know">Want To Know</string>
+    <string name="users_who_like_your_beautiful_posts">Users who like your posts:</string>
+    <string name="null_text" />
+    <string name="likes_number">10 likes</string>
+    <string name="nullText" />
+</resources>

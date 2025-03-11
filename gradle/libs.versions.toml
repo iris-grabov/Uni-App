@@ -1,0 +1,57 @@
+[versions]
+agp = "8.7.2"
+kotlin = "1.9.24"
+coreKtx = "1.15.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+lifecycleLivedataKtx = "2.8.7"
+lifecycleViewmodelKtx = "2.8.7"
+navigationFragmentKtx = "2.8.5"
+navigationUiKtx = "2.8.5"
+activity = "1.9.3"
+constraintlayout = "2.2.0"
+googleServices = "4.4.2"
+glide = "4.16.0"
+firebaseBom = "33.7.0"
+firebaseUiAuth = "8.0.2"
+picasso = "2.8"
+androidImageCropper = "4.6.0"
+firebaseMessagingKtx = "24.1.0"
+hdodenhofCircleimageview = "3.0.0"
+swiperefreshlayout = "1.1.0"
+
+
+
+[libraries]
+androidxCoreKtx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidxJunit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidxEspressoCore = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidxAppcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidxConstraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidxLifecycleLivedataKtx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+androidxLifecycleViewmodelKtx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidxNavigationFragmentKtx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidxNavigationUiKtx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx"}
+hdodenhofCircleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "hdodenhofCircleimageview" }
+androidxActivity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+firebaseBom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebaseAnalytics = { module = "com.google.firebase:firebase-analytics" }
+firebaseUiAuth = { module = "com.firebaseui:firebase-ui-auth", version.ref = "firebaseUiAuth" }
+firebaseDatabase = { module = "com.google.firebase:firebase-database" }
+firebaseStorage = { module = "com.google.firebase:firebase-storage" }
+firebaseMessaging = { module = "com.google.firebase:firebase-messaging" }
+picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso"}
+androidImageCropper = { module = "com.vanniktech:android-image-cropper", version.ref = "androidImageCropper" }
+firebaseMessagingKtx = { group = "com.google.firebase", name = "firebase-messaging-ktx", version.ref = "firebaseMessagingKtx" }
+androidxSwiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+googleServices = { id = "com.google.gms.google-services", version.ref = "googleServices" }
