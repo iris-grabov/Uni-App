@@ -148,4 +148,4 @@ Below is a brief description of the libraries and plugins used in this Android p
 - **android-image-cropper**: A library that simplifies the process of cropping images in Android applications.
 - **androidx.swiperefreshlayout**: Provides a swipe-to-refresh layout, allowing users to refresh content in a list or view by swiping down.
 
-These libraries and tools provide a robust and efficient foundation for building and maintaining the application, while ensuring a smooth user experience, easy data management, and seamless Firebase integration.
+
