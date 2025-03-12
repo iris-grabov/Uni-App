@@ -24,6 +24,7 @@ class UserProfileActivity : AppCompatActivity() {
         // Set up the toolbar and back button
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+        supportActionBar?.title = "" // Remove title
 
         val backButton: ImageView = findViewById(R.id.back_button)
         backButton.setOnClickListener {

@@ -33,7 +33,7 @@ class ChatListActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         // Handle back button click
-        findViewById<ImageButton>(R.id.backButtonsearchButton).setOnClickListener {
+        findViewById<ImageButton>(R.id.backButton).setOnClickListener {
             finish() // Close this activity and return
         }
 
