@@ -87,16 +87,15 @@ This Android application is a social media platform designed for users to intera
   ![image](https://github.com/user-attachments/assets/6c949962-6497-4333-8efb-25722489ec18)
 - **RealTime DataBase**: Stores chat messages, posts, and user data
 ![image](https://github.com/user-attachments/assets/e0e26880-4ad8-499b-aa9f-2722cde647cb)
-
 - **Storage**: Stores profile images and post images in Firebase Storage.
+- ![image](https://github.com/user-attachments/assets/af10e77c-7947-41ef-9b49-0229dcbc0775)
 - **Cloud Messaging**: Sends push notifications to users for new messages using Firebase Cloud Messaging (FCM).
-  ![image](https://github.com/user-attachments/assets/86e2893c-934c-4b9f-8e7a-b3d618d8ed99)
+![image](https://github.com/user-attachments/assets/22e30094-dd2a-4c92-9d8c-3f82a2a7c9a6)
 
 
 ### Firebase Function:
 - **sendMessageNotification**: Sends a push notification to a user when a new message is received in the chat.
-  I had to do a deploy function in my terminal: ![image](https://github.com/user-attachments/assets/c6626de8-f253-4a11-8145-e2d25f87957e) ![image](https://github.com/user-attachments/assets/725c67d2-2687-400b-b4a7-d7b47b32c01c)
-
+  I had to do a deploy function in my terminal: ![image](https://github.com/user-attachments/assets/d20ba143-a285-438f-af1e-f34137d3d8eb)
 
 ### Activities:
 1. **ChatActivity**: Displays the chat interface where users can send and receive messages.
