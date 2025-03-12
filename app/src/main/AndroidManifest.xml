@@ -23,6 +23,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Uni"
         tools:targetApi="31">
+
+        <!-- File Provider for camera photos -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.uni.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity
             android:name=".UserProfileActivity"
             android:exported="false" />

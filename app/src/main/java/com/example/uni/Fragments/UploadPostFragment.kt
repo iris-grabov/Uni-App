@@ -1,8 +1,10 @@
 package com.example.uni.Fragments
 
+import android.Manifest
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -12,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -34,6 +37,7 @@ class UploadPostFragment : Fragment() {
 
     private val PICK_IMAGE_REQUEST = 1
     private val CAMERA_REQUEST_CODE = 2
+    private val CAMERA_PERMISSION_CODE = 100
 
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
@@ -52,7 +56,9 @@ class UploadPostFragment : Fragment() {
             selectImage()
         }
 
-
+        binding.uploadPostBTNCamera.setOnClickListener {
+            checkCameraPermission()
+        }
 
         binding.uploadPostBTNUpload.setOnClickListener {
             uploadPost()
@@ -67,6 +73,18 @@ class UploadPostFragment : Fragment() {
             action = Intent.ACTION_GET_CONTENT
         }
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
+    }
+
+    private fun checkCameraPermission() {
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
+        } else {
+            openCamera()
+        }
     }
 
     private fun openCamera() {
@@ -95,6 +113,22 @@ class UploadPostFragment : Fragment() {
         val storageDir: File? = requireContext().getExternalFilesDir(null)
         return File.createTempFile("JPEG_${timeStamp}_", ".jpg", storageDir).apply {
             currentPhotoPath = absolutePath
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == CAMERA_PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openCamera()
+            } else {
+                Toast.makeText(context, "Camera permission denied", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
