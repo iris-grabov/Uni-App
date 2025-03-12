@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Fragments.LikersFragment">
+    tools:context=".Fragments.LikersFragment"
+    android:layoutDirection="ltr">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/notification_header"

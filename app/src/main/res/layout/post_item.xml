@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="16dp"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:layoutDirection="ltr">
 
     <View
         android:id="@+id/line1"

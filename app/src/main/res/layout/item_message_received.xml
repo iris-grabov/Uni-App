@@ -6,7 +6,8 @@
     android:paddingStart="8dp"
     android:paddingEnd="60dp"
     android:paddingTop="4dp"
-    android:paddingBottom="4dp">
+    android:paddingBottom="4dp"
+    android:layoutDirection="ltr">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/messageCardView"

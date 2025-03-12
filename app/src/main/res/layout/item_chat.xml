@@ -9,7 +9,8 @@
     android:paddingBottom="12dp"
     android:background="?attr/selectableItemBackground"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:layoutDirection="ltr">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileImageView"

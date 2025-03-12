@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".UserSettingActivity">
+    tools:context=".UserSettingActivity"
+    android:layoutDirection="ltr">
 
     <!-- Title Text Instead of AppBar -->
     <TextView
@@ -19,7 +20,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="30dp"/>
 
     <!-- Action Buttons -->
     <LinearLayout
@@ -170,8 +171,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="#F44336"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/colorPrimary"
         android:text="LOG OUT"
         android:textColor="@color/white"
         android:textSize="16sp"

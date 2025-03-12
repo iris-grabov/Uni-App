@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Fragments.UploadPostFragment">
+    tools:context=".Fragments.UploadPostFragment"
+    android:layoutDirection="ltr">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_upload"
@@ -116,23 +117,22 @@
             android:backgroundTint="@color/colorPrimary"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/upload_post_BTN_upload"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:text="Upload"
+            android:layout_marginStart="8dp"
+            android:textAllCaps="false"
+            app:cornerRadius="8dp"
+            android:backgroundTint="@color/colorPrimary"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/upload_post_BTN_camera"
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_weight="1"
             android:text="Camera"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:textAllCaps="false"
-            app:cornerRadius="8dp"
-            android:backgroundTint="@color/colorPrimary"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/upload_post_BTN_upload"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_weight="1"
-            android:text="Upload"
             android:layout_marginStart="8dp"
             android:textAllCaps="false"
             app:cornerRadius="8dp"

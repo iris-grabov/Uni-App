@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ChatActivity">
+    tools:context=".ChatActivity"
+    android:layoutDirection="ltr">
 
     <!-- Chat Header -->
     <com.google.android.material.appbar.AppBarLayout
