@@ -53,30 +53,34 @@ class HomeFragment : Fragment() {
     }
 
     private fun retrievePosts() {
-        Log.d("HomeFragment", "retrievePosts started") // Log retrievePosts start
+        Log.d("HomeFragment", "retrievePosts started")
         val postsRef = database.reference.child("posts")
 
         postsRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                Log.d("HomeFragment", "onDataChange started") // Log onDataChange start
+                Log.d("HomeFragment", "onDataChange started")
                 val postsList = mutableListOf<Post>()
                 for (postSnapshot in snapshot.children) {
                     val post = postSnapshot.getValue(Post::class.java)
                     post?.let {
                         postsList.add(it)
-                        Log.d("HomeFragment", "Retrieved post: $it") // Log retrieved post
+                        Log.d("HomeFragment", "Retrieved post: $it")
                     }
                 }
-                Log.d("HomeFragment", "Posts list size: ${postsList.size}") // Log posts list size
-                postAdapter.updatePosts(postsList)
-                Log.d("HomeFragment", "onDataChange finished") // Log onDataChange finish
+
+                // Sort the postsList by timestamp in descending order (newest first)
+                val sortedPostsList = postsList.sortedByDescending { it.timestamp }
+
+                Log.d("HomeFragment", "Posts list size: ${sortedPostsList.size}")
+                postAdapter.updatePosts(sortedPostsList)
+                Log.d("HomeFragment", "onDataChange finished")
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("HomeFragment", "onCancelled: ${error.message}") // Log onCancelled error
-                Log.d("HomeFragment", "onCancelled finished") // Log onCancelled finish
+                Log.e("HomeFragment", "onCancelled: ${error.message}")
+                Log.d("HomeFragment", "onCancelled finished")
             }
         })
-        Log.d("HomeFragment", "retrievePosts finished") // Log retrievePosts finish
+        Log.d("HomeFragment", "retrievePosts finished")
     }
 }

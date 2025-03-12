@@ -1,14 +1,18 @@
 package com.example.uni.Fragments
 
-import android.app.Activity.RESULT_OK
+import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.uni.Model.Post
@@ -17,13 +21,19 @@ import com.example.uni.databinding.FragmentUploadPostBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import java.util.UUID
+import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 class UploadPostFragment : Fragment() {
 
     private lateinit var binding: FragmentUploadPostBinding
     private var imageUri: Uri? = null
+    private lateinit var currentPhotoPath: String
+
     private val PICK_IMAGE_REQUEST = 1
+    private val CAMERA_REQUEST_CODE = 2
 
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
@@ -42,6 +52,10 @@ class UploadPostFragment : Fragment() {
             selectImage()
         }
 
+        binding.camera.setOnClickListener {
+            openCamera()
+        }
+
         binding.uploadPostBTNUpload.setOnClickListener {
             uploadPost()
         }
@@ -57,11 +71,50 @@ class UploadPostFragment : Fragment() {
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
     }
 
+    private fun openCamera() {
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        try {
+            val photoFile: File? = createImageFile()
+            if (photoFile != null) {
+                val photoURI: Uri = FileProvider.getUriForFile(
+                    requireContext(),
+                    "com.example.uni.fileprovider",
+                    photoFile
+                )
+                imageUri = photoURI
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE)
+            }
+        } catch (e: IOException) {
+            Toast.makeText(context, "Error while creating image file", Toast.LENGTH_SHORT).show()
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(context, "No camera app found", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun createImageFile(): File {
+        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+        val storageDir: File? = requireContext().getExternalFilesDir(null)
+        return File.createTempFile("JPEG_${timeStamp}_", ".jpg", storageDir).apply {
+            currentPhotoPath = absolutePath
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
-            imageUri = data.data
-            Glide.with(this).load(imageUri).into(binding.uploadPostIMGPreview)
+
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                PICK_IMAGE_REQUEST -> {
+                    imageUri = data?.data
+                    Glide.with(this).load(imageUri).into(binding.uploadPostIMGPreview)
+                }
+                CAMERA_REQUEST_CODE -> {
+                    imageUri?.let {
+                        Glide.with(this).load(it).into(binding.uploadPostIMGPreview)
+                    }
+                }
+            }
         }
     }
 
@@ -80,7 +133,7 @@ class UploadPostFragment : Fragment() {
                 storageRef.downloadUrl.addOnSuccessListener { downloadUrl ->
                     val post = Post(
                         postId = postId,
-                        postImage = downloadUrl.toString(), // Store the download URL
+                        postImage = downloadUrl.toString(),
                         publisher = auth.currentUser?.uid ?: "unknown",
                         caption = caption,
                         likes = mutableMapOf()
@@ -88,7 +141,7 @@ class UploadPostFragment : Fragment() {
 
                     database.reference.child("posts").child(postId).setValue(post)
                         .addOnSuccessListener {
-                            Log.d("UploadPostFragment", "Post uploaded: $post") // Add this line
+                            Log.d("UploadPostFragment", "Post uploaded: $post")
                             Toast.makeText(context, "Post uploaded successfully", Toast.LENGTH_SHORT).show()
                             clearFields()
                         }
