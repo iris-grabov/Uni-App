@@ -34,7 +34,7 @@ class CuriousTogetherFragment : Fragment() {
 //        }
 
         // Initialize RecyclerView and adapter
-        userAdapter = CuriousUsersAdapter(usersList)
+        userAdapter = CuriousUsersAdapter(usersList, requireContext())
     }
 
     override fun onCreateView(
