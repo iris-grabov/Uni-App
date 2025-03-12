@@ -52,9 +52,7 @@ class UploadPostFragment : Fragment() {
             selectImage()
         }
 
-        binding.camera.setOnClickListener {
-            openCamera()
-        }
+
 
         binding.uploadPostBTNUpload.setOnClickListener {
             uploadPost()

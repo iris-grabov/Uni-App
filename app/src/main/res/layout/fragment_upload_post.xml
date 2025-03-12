@@ -109,7 +109,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_weight="1"
-            android:text="Gallery"
+            android:text="Choose Picture"
             android:layout_marginEnd="8dp"
             android:textAllCaps="false"
             app:cornerRadius="8dp"
@@ -125,16 +125,7 @@
             android:textAllCaps="false"
             app:cornerRadius="8dp"
             android:backgroundTint="@color/colorPrimary"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/camera"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_weight="1"
-            android:text="Camera"
-            android:layout_marginStart="8dp"
-            android:textAllCaps="false"
-            app:cornerRadius="8dp"
-            android:backgroundTint="@color/colorPrimary"/>
+
 
     </LinearLayout>
 
