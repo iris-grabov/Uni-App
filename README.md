@@ -84,9 +84,13 @@ This Android application is a social media platform designed for users to intera
 
 ### Firebase Integration:
 - **Authentication**: Handles user sign-in and registration with Firebase Authentication.
-  ![image](https://github.com/user-attachments/assets/6c949962-6497-4333-8efb-25722489ec18)
+  ![image](https://github.com/user-attachments/assets/f5ffcaea-85be-4e81-86ca-bed10a1f5af7)
 - **RealTime DataBase**: Stores chat messages, posts, and user data
-![image](https://github.com/user-attachments/assets/e0e26880-4ad8-499b-aa9f-2722cde647cb)
+![image](https://github.com/user-attachments/assets/306aac90-962f-4a86-9a89-dbb9e3880ecb)
+![image](https://github.com/user-attachments/assets/35594938-f845-488a-8cd4-8817d9ea2a57)
+![image](https://github.com/user-attachments/assets/9766b7b3-093d-4ef8-9f4c-5495a53400d0)
+![image](https://github.com/user-attachments/assets/675b2dca-592f-44b7-8fc2-e8b7f2f3eaab)
+
 - **Storage**: Stores profile images and post images in Firebase Storage.
 - ![image](https://github.com/user-attachments/assets/af10e77c-7947-41ef-9b49-0229dcbc0775)
 - **Cloud Messaging**: Sends push notifications to users for new messages using Firebase Cloud Messaging (FCM).
